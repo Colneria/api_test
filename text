@@ -1,0 +1,361 @@
+{
+    "namespace": "wp\/v2",
+    "routes": {
+        "\/wp\/v2": {
+            "namespace": "wp\/v2",
+            "methods": [
+                "GET"
+            ],
+            "endpoints": [
+                {
+                    "methods": [
+                        "GET"
+                    ],
+                    "args": {
+                        "namespace": {
+                            "default": "wp\/v2",
+                            "required": false
+                        },
+                        "context": {
+                            "default": "view",
+                            "required": false
+                        }
+                    }
+                }
+            ],
+            "_links": {
+                "self": [
+                    {
+                        "href": "https:\/\/sunabaco.com\/wp-json\/wp\/v2"
+                    }
+                ]
+            }
+        },
+        "\/wp\/v2\/posts": {
+            "namespace": "wp\/v2",
+            "methods": [
+                "GET",
+                "POST"
+            ],
+            "endpoints": [
+                {
+                    "methods": [
+                        "GET"
+                    ],
+                    "allow_batch": {
+                        "v1": true
+                    },
+                    "args": {
+                        "context": {
+                            "description": "\u3053\u306e\u30ea\u30af\u30a8\u30b9\u30c8\u304c\u4f5c\u6210\u3055\u308c\u305f\u30b9\u30b3\u30fc\u30d7\u3002\u30ec\u30b9\u30dd\u30f3\u30b9\u306b\u542b\u307e\u308c\u308b\u30d5\u30a3\u30fc\u30eb\u30c9\u306f\u30b9\u30b3\u30fc\u30d7\u306b\u3088\u308a\u7570\u306a\u308a\u307e\u3059\u3002",
+                            "type": "string",
+                            "enum": [
+                                "view",
+                                "embed",
+                                "edit"
+                            ],
+                            "default": "view",
+                            "required": false
+                        },
+                        "page": {
+                            "description": "\u30b3\u30ec\u30af\u30b7\u30e7\u30f3\u306e\u73fe\u5728\u306e\u30da\u30fc\u30b8\u3002",
+                            "type": "integer",
+                            "default": 1,
+                            "minimum": 1,
+                            "required": false
+                        },
+                        "per_page": {
+                            "description": "\u7d50\u679c\u3068\u3057\u3066\u8fd4\u3055\u308c\u308b\u9805\u76ee\u306e\u6700\u5927\u6570\u3002",
+                            "type": "integer",
+                            "default": 10,
+                            "minimum": 1,
+                            "maximum": 100,
+                            "required": false
+                        },
+                        "search": {
+                            "description": "\u6587\u5b57\u5217\u306b\u4e00\u81f4\u3059\u308b\u3082\u306e\u306b\u7d50\u679c\u3092\u9650\u5b9a\u3057\u307e\u3059\u3002",
+                            "type": "string",
+                            "required": false
+                        },
+                        "after": {
+                            "description": "\u5165\u529b\u3055\u308c\u305f ISO8601 \u6e96\u62e0\u306e\u65e5\u4ed8\u3088\u308a\u5f8c\u306b\u516c\u958b\u3055\u308c\u305f\u6295\u7a3f\u306b\u30ec\u30b9\u30dd\u30f3\u30b9\u3092\u9650\u5b9a\u3057\u307e\u3059\u3002",
+                            "type": "string",
+                            "format": "date-time",
+                            "required": false
+                        },
+                        "modified_after": {
+                            "description": "\u5165\u529b\u3055\u308c\u305f ISO8601 \u6e96\u62e0\u306e\u65e5\u4ed8\u3088\u308a\u5f8c\u306b\u66f4\u65b0\u3055\u308c\u305f\u6295\u7a3f\u306b\u30ec\u30b9\u30dd\u30f3\u30b9\u3092\u9650\u5b9a\u3057\u307e\u3059\u3002",
+                            "type": "string",
+                            "format": "date-time",
+                            "required": false
+                        },
+                        "author": {
+                            "description": "\u7279\u5b9a\u306e\u6295\u7a3f\u8005\u306b\u5272\u308a\u5f53\u3066\u3089\u308c\u305f\u6295\u7a3f\u306b\u7d50\u679c\u3092\u9650\u5b9a\u3057\u307e\u3059\u3002",
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            },
+                            "default": [],
+                            "required": false
+                        },
+                        "author_exclude": {
+                            "description": "\u7279\u5b9a\u306e\u6295\u7a3f\u8005\u304c\u5272\u308a\u5f53\u3066\u3089\u308c\u305f\u6295\u7a3f\u3092\u7d50\u679c\u304b\u3089\u9664\u5916\u3057\u307e\u3059\u3002",
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            },
+                            "default": [],
+                            "required": false
+                        },
+                        "before": {
+                            "description": "\u5165\u529b\u3055\u308c\u305f ISO8601 \u6e96\u62e0\u306e\u65e5\u4ed8\u3088\u308a\u524d\u306b\u516c\u958b\u3055\u308c\u305f\u6295\u7a3f\u306b\u30ec\u30b9\u30dd\u30f3\u30b9\u3092\u9650\u5b9a\u3057\u307e\u3059\u3002",
+                            "type": "string",
+                            "format": "date-time",
+                            "required": false
+                        },
+                        "modified_before": {
+                            "description": "\u5165\u529b\u3055\u308c\u305f ISO8601 \u6e96\u62e0\u306e\u65e5\u4ed8\u3088\u308a\u524d\u306b\u66f4\u65b0\u3055\u308c\u305f\u6295\u7a3f\u306b\u30ec\u30b9\u30dd\u30f3\u30b9\u3092\u9650\u5b9a\u3057\u307e\u3059\u3002",
+                            "type": "string",
+                            "format": "date-time",
+                            "required": false
+                        },
+                        "exclude": {
+                            "description": "\u7279\u5b9a\u306e ID \u3092\u7d50\u679c\u304b\u3089\u9664\u5916\u3057\u307e\u3059\u3002",
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            },
+                            "default": [],
+                            "required": false
+                        },
+                        "include": {
+                            "description": "\u7279\u5b9a\u306e ID \u306b\u7d50\u679c\u3092\u9650\u5b9a\u3057\u307e\u3059\u3002",
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            },
+                            "default": [],
+                            "required": false
+                        },
+                        "offset": {
+                            "description": "\u7279\u5b9a\u306e\u9805\u76ee\u6570\u3067\u7d50\u679c\u3092\u30aa\u30d5\u30bb\u30c3\u30c8\u3057\u307e\u3059\u3002",
+                            "type": "integer",
+                            "required": false
+                        },
+                        "order": {
+                            "description": "\u5c5e\u6027\u3067\u6607\u9806\u307e\u305f\u306f\u964d\u9806\u306b\u4e26\u3079\u66ff\u3048\u307e\u3059\u3002",
+                            "type": "string",
+                            "default": "desc",
+                            "enum": [
+                                "asc",
+                                "desc"
+                            ],
+                            "required": false
+                        },
+                        "orderby": {
+                            "description": "\u6295\u7a3f\u306e\u5c5e\u6027\u3067\u30b3\u30ec\u30af\u30b7\u30e7\u30f3\u3092\u4e26\u3079\u66ff\u3048\u307e\u3059\u3002",
+                            "type": "string",
+                            "default": "date",
+                            "enum": [
+                                "author",
+                                "date",
+                                "id",
+                                "include",
+                                "modified",
+                                "parent",
+                                "relevance",
+                                "slug",
+                                "include_slugs",
+                                "title",
+                                "rand",
+                                "menu_order"
+                            ],
+                            "required": false
+                        },
+                        "search_columns": {
+                            "default": [],
+                            "description": "\u691c\u7d22\u3059\u308b\u5217\u540d\u306e\u914d\u5217\u3002",
+                            "type": "array",
+                            "items": {
+                                "enum": [
+                                    "post_title",
+                                    "post_content",
+                                    "post_excerpt"
+                                ],
+                                "type": "string"
+                            },
+                            "required": false
+                        },
+                        "slug": {
+                            "description": "\u4e00\u3064\u4ee5\u4e0a\u306e\u7279\u5b9a\u306e\u30b9\u30e9\u30c3\u30b0\u3092\u6301\u3064\u6295\u7a3f\u306b\u7d50\u679c\u3092\u9650\u5b9a\u3057\u307e\u3059\u3002",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "required": false
+                        },
+                        "status": {
+                            "default": "publish",
+                            "description": "\u4e00\u3064\u4ee5\u4e0a\u306e\u30b9\u30c6\u30fc\u30bf\u30b9\u304c\u5272\u308a\u5f53\u3066\u3089\u308c\u305f\u6295\u7a3f\u306b\u7d50\u679c\u3092\u9650\u5b9a\u3057\u307e\u3059\u3002",
+                            "type": "array",
+                            "items": {
+                                "enum": [
+                                    "publish",
+                                    "future",
+                                    "draft",
+                                    "pending",
+                                    "private",
+                                    "trash",
+                                    "auto-draft",
+                                    "inherit",
+                                    "request-pending",
+                                    "request-confirmed",
+                                    "request-failed",
+                                    "request-completed",
+                                    "acf-disabled",
+                                    "dp-rewrite-republish",
+                                    "any"
+                                ],
+                                "type": "string"
+                            },
+                            "required": false
+                        },
+                        "tax_relation": {
+                            "description": "\u7d50\u679c\u30bb\u30c3\u30c8\u3092\u8907\u6570\u306e\u30bf\u30af\u30bd\u30ce\u30df\u30fc\u9593\u306e\u95a2\u4fc2\u306b\u57fa\u3065\u3044\u3066\u9650\u5b9a\u3057\u307e\u3059\u3002",
+                            "type": "string",
+                            "enum": [
+                                "AND",
+                                "OR"
+                            ],
+                            "required": false
+                        },
+                        "categories": {
+                            "description": "\u300ccategories\u300d\u30bf\u30af\u30bd\u30ce\u30df\u30fc\u306b\u5272\u308a\u5f53\u3066\u3089\u308c\u305f\u7279\u5b9a\u306e\u30bf\u30fc\u30e0\u3092\u6301\u3064\u9805\u76ee\u306b\u7d50\u679c\u3092\u9650\u5b9a\u3057\u307e\u3059\u3002",
+                            "type": [
+                                "object",
+                                "array"
+                            ],
+                            "oneOf": [
+                                {
+                                    "title": "\u30bf\u30fc\u30e0 ID \u4e00\u89a7",
+                                    "description": "\u30ea\u30b9\u30c8\u3057\u305f ID \u3068\u5408\u81f4\u3059\u308b\u30bf\u30fc\u30e0\u3002",
+                                    "type": "array",
+                                    "items": {
+                                        "type": "integer"
+                                    }
+                                },
+                                {
+                                    "title": "\u30bf\u30fc\u30e0 ID \u30bf\u30af\u30bd\u30ce\u30df\u30fc\u30af\u30a8\u30ea\u30fc",
+                                    "description": "\u9ad8\u5ea6\u306a\u30bf\u30fc\u30e0\u30af\u30a8\u30ea\u30fc\u3092\u5b9f\u884c\u3057\u307e\u3059\u3002",
+                                    "type": "object",
+                                    "properties": {
+                                        "terms": {
+                                            "description": "\u30bf\u30fc\u30e0 ID\u3002",
+                                            "type": "array",
+                                            "items": {
+                                                "type": "integer"
+                                            },
+                                            "default": []
+                                        },
+                                        "include_children": {
+                                            "description": "\u7d50\u679c\u3092\u9650\u5b9a\u3057\u305f\u30bf\u30fc\u30e0\u306b\u5b50\u30bf\u30fc\u30e0\u3092\u542b\u3081\u308b\u304b\u3069\u3046\u304b\u3002",
+                                            "type": "boolean",
+                                            "default": false
+                                        },
+                                        "operator": {
+                                            "description": "\u7279\u5b9a\u306e\u30bf\u30fc\u30e0\u306e\u3059\u3079\u3066\u306b\u9805\u76ee\u3092\u5272\u308a\u5f53\u3066\u308b\u304b\u3001\u4e00\u90e8\u306b\u5272\u308a\u5f53\u3066\u308b\u304b\u3002",
+                                            "type": "string",
+                                            "enum": [
+                                                "AND",
+                                                "OR"
+                                            ],
+                                            "default": "OR"
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                }
+                            ],
+                            "required": false
+                        },
+                        "categories_exclude": {
+                            "description": "\u300ccategories\u300d\u30bf\u30af\u30bd\u30ce\u30df\u30fc\u306b\u5272\u308a\u5f53\u3066\u3089\u308c\u305f\u7279\u5b9a\u306e\u30bf\u30fc\u30e0\u3092\u6301\u3064\u9805\u76ee\u4ee5\u5916\u306b\u7d50\u679c\u3092\u9650\u5b9a\u3057\u307e\u3059\u3002",
+                            "type": [
+                                "object",
+                                "array"
+                            ],
+                            "oneOf": [
+                                {
+                                    "title": "\u30bf\u30fc\u30e0 ID \u4e00\u89a7",
+                                    "description": "\u30ea\u30b9\u30c8\u3057\u305f ID \u3068\u5408\u81f4\u3059\u308b\u30bf\u30fc\u30e0\u3002",
+                                    "type": "array",
+                                    "items": {
+                                        "type": "integer"
+                                    }
+                                },
+                                {
+                                    "title": "\u30bf\u30fc\u30e0 ID \u30bf\u30af\u30bd\u30ce\u30df\u30fc\u30af\u30a8\u30ea\u30fc",
+                                    "description": "\u9ad8\u5ea6\u306a\u30bf\u30fc\u30e0\u30af\u30a8\u30ea\u30fc\u3092\u5b9f\u884c\u3057\u307e\u3059\u3002",
+                                    "type": "object",
+                                    "properties": {
+                                        "terms": {
+                                            "description": "\u30bf\u30fc\u30e0 ID\u3002",
+                                            "type": "array",
+                                            "items": {
+                                                "type": "integer"
+                                            },
+                                            "default": []
+                                        },
+                                        "include_children": {
+                                            "description": "\u7d50\u679c\u3092\u9650\u5b9a\u3057\u305f\u30bf\u30fc\u30e0\u306b\u5b50\u30bf\u30fc\u30e0\u3092\u542b\u3081\u308b\u304b\u3069\u3046\u304b\u3002",
+                                            "type": "boolean",
+                                            "default": false
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                }
+                            ],
+                            "required": false
+                        },
+                        "tags": {
+                            "description": "\u300ctags\u300d\u30bf\u30af\u30bd\u30ce\u30df\u30fc\u306b\u5272\u308a\u5f53\u3066\u3089\u308c\u305f\u7279\u5b9a\u306e\u30bf\u30fc\u30e0\u3092\u6301\u3064\u9805\u76ee\u306b\u7d50\u679c\u3092\u9650\u5b9a\u3057\u307e\u3059\u3002",
+                            "type": [
+                                "object",
+                                "array"
+                            ],
+                            "oneOf": [
+                                {
+                                    "title": "\u30bf\u30fc\u30e0 ID \u4e00\u89a7",
+                                    "description": "\u30ea\u30b9\u30c8\u3057\u305f ID \u3068\u5408\u81f4\u3059\u308b\u30bf\u30fc\u30e0\u3002",
+                                    "type": "array",
+                                    "items": {
+                                        "type": "integer"
+                                    }
+                                },
+                                {
+                                    "title": "\u30bf\u30fc\u30e0 ID \u30bf\u30af\u30bd\u30ce\u30df\u30fc\u30af\u30a8\u30ea\u30fc",
+                                    "description": "\u9ad8\u5ea6\u306a\u30bf\u30fc\u30e0\u30af\u30a8\u30ea\u30fc\u3092\u5b9f\u884c\u3057\u307e\u3059\u3002",
+                                    "type": "object",
+                                    "properties": {
+                                        "terms": {
+                                            "description": "\u30bf\u30fc\u30e0 ID\u3002",
+                                            "type": "array",
+                                            "items": {
+                                                "type": "integer"
+                                            },
+                                            "default": []
+                                        },
+                                        "operator": {
+                                            "description": "\u7279\u5b9a\u306e\u30bf\u30fc\u30e0\u306e\u3059\u3079\u3066\u306b\u9805\u76ee\u3092\u5272\u308a\u5f53\u3066\u308b\u304b\u3001\u4e00\u90e8\u306b\u5272\u308a\u5f53\u3066\u308b\u304b\u3002",
+                                            "type": "string",
+                                            "enum": [
+                                                "AND",
+                                                "OR"
+                                            ],
+                                            "default": "OR"
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                }
+                            ],
+                            "required": false
+                        }, "tags_exclu...
